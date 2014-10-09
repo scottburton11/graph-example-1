@@ -1,0 +1,9 @@
+line.link {
+  stroke-width: 3;
+  stroke: rgba(79, 134, 177, 0.2);
+}
+
+circle.node {
+  stroke-width: 4.5;
+  stroke: rgba(24, 78, 121, 0.55);
+}
