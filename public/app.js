@@ -1,56 +1,42 @@
 var width = $(window).width()
 var height = $(window).height()
 
-var nodes = [
-  {id: 1, size: 15, color: "#1f77b4", x: width/2, y: height/2},
-  {id: 2, size: 12, color: "#bcbd22"},
-  {id: 3, size: 12, color: "#bcbd22"},
-  {id: 4, size: 12, color: "#bcbd22"},
-  {id: 5},
-  {id: 6},
-  {id: 7},
-  {id: 8},
-  {id: 9},
-  {id: 10}
-]
+var force, link, node;
 
-var links = [
-  {source: 0, target: 1, length: 120},
-  {source: 0, target: 2, length: 120},
-  {source: 0, target: 3, length: 120},
-  {source: 1, target: 4},
-  {source: 1, target: 5},
-  {source: 2, target: 6},
-  {source: 2, target: 7},
-  {source: 3, target: 8},
-  {source: 3, target: 9},
-]
+d3.json("./data.json", function(data){
+  var nodes = data.nodes
+  var links = data.links
 
-var force = d3.layout.force()
-  .nodes(nodes)
-  .links(links)
-  .size([width, height])
-  .linkStrength(0.1)
-  .friction(0.9)
-  .distance(function(d) { return d.length || 20 })
-  .charge(-50)
-  .gravity(0.001)
-  .theta(0.8)
-  .alpha(0.05)
-  .on("tick", tick)
+  force = d3.layout.force()
+    .nodes(nodes)
+    .links(links)
+    .size([width, height])
+    .linkStrength(0.1)
+    .friction(0.9)
+    .distance(function(d) { return d.length || 20 })
+    .charge(-50)
+    .gravity(0.001)
+    .theta(0.8)
+    .alpha(0.05)
+    .on("tick", tick)
 
+  var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+  link = svg.selectAll(".link");
+  node = svg.selectAll(".node");
+  group = svg.selectAll(".group")
 
-var link = svg.selectAll(".link");
-var node = svg.selectAll(".node");
+  update();
+})
+
 
 
 function update() {
   var nodes = force.nodes();
   var links = force.links();
+
   // Restart the force layout.
   force
       .nodes(nodes)
@@ -76,12 +62,14 @@ function update() {
   node.exit().remove();
 
   // Enter any new nodes.
-  node.enter().append("circle")
+  node
+    .enter().append("circle")
       .attr("class", "node")
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.size || 7; })
       .style("fill", function(d){ return d.color || "#7c7c7c" })
+      .text(function(d){ return d.title })
       .call(force.drag)
 }
 
@@ -94,5 +82,3 @@ function tick() {
   node.attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; });
 }
-
-update();

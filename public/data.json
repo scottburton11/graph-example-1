@@ -1,0 +1,50 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "title": "Steven Hawking",
+      "body": "Steven Hawking is an English theoretical physicist, cosmologist, author and Director of Research at the Centre for Theoretical Cosmology within the University of Cambridge.[15][16] Among his significant scientific works have been a collaboration with Roger Penrose on gravitational singularity theorems in the framework of general relativity, and the theoretical prediction that black holes emit radiation, often called Hawking radiation. Hawking was the first to set forth a cosmology explained by a union of the general theory of relativity and quantum mechanics. He is a vocal supporter of the many-worlds interpretation of quantum mechanics.",
+      "url": "http://en.wikipedia.org/wiki/Stephen_Hawking",
+      "image_url": "http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg",
+      "slug": "hawking"
+    },
+    {
+      "id": "2",
+      "title": "Cosmology",
+      "body": "Cosmology is the study of the origin, evolution, and eventual fate of the universe.",
+      "url": "http://en.wikipedia.org/wiki/Cosmology",
+      "image_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Constellation_Fornax%2C_EXtreme_Deep_Field.jpg/560px-Constellation_Fornax%2C_EXtreme_Deep_Field.jpg",
+      "slug": "cosmology"
+    },
+    {
+      "id": "3",
+      "title": "The Big Bang",
+      "body": "The Big Bang theory is the prevailing cosmological model for the early development of the universe.[1] The key idea is that the universe is expanding. Consequently, the universe was denser and hotter in the past. Moreover, the Big Bang model suggests that at some moment all matter in the universe was contained in a single point, which is considered the beginning of the universe. ",
+      "url": "http://en.wikipedia.org/wiki/Big_Bang",
+      "image_url": null,
+      "slug": "big_bang"
+    },
+    {
+      "id": "4",
+      "title": "Roger Penrose",
+      "body": "Sir Roger Penrose OM FRS (born 8 August 1931), is an English mathematical physicist, mathematician and philosopher of science. He is the Emeritus Rouse Ball Professor of Mathematics at the Mathematical Institute of the University of Oxford, as well as an Emeritus Fellow of Wadham College.",
+      "url": "http://en.wikipedia.org/wiki/Roger_Penrose",
+      "image_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Roger_Penrose-6Nov2005.jpg/520px-Roger_Penrose-6Nov2005.jpg",
+      "slug": "roger_penrose"
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 1
+    },
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    }
+  ]
+}
